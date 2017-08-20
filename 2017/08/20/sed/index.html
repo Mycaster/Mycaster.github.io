@@ -5,12 +5,16 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="sed 教程[TOC] 1. 简介​    sed 是 Linux 下常用的流式文本处理器，将输入流按行处理，可以满足大部分场景的文本处理需要。然而第一次使用的时候基本是懵逼的，除了最简单的 s/a/b/g ，其余的语法都是似懂非懂，对于稍微复杂一点的场景，就要开启 [ Google-&amp;gt;尝试-&amp;gt;不管用-&amp;gt;继续Google ] 的大循环 =.= 。 ​    搜了一下目前好像还没有">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/08/20/sed/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="sed 教程[TOC] 1. 简介​    sed 是 Linux 下常用的流式文本处理器，将输入流按行处理，可以满足大部分场景的文本处理需要。然而第一次使用的时候基本是懵逼的，除了最简单的 s/a/b/g ，其余的语法都是似懂非懂，对于稍微复杂一点的场景，就要开启 [ Google-&amp;gt;尝试-&amp;gt;不管用-&amp;gt;继续Google ] 的大循环 =.= 。 ​    搜了一下目前好像还没有">
+<meta property="og:updated_time" content="2017-08-20T03:05:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="sed 教程[TOC] 1. 简介​    sed 是 Linux 下常用的流式文本处理器，将输入流按行处理，可以满足大部分场景的文本处理需要。然而第一次使用的时候基本是懵逼的，除了最简单的 s/a/b/g ，其余的语法都是似懂非懂，对于稍微复杂一点的场景，就要开启 [ Google-&amp;gt;尝试-&amp;gt;不管用-&amp;gt;继续Google ] 的大循环 =.= 。 ​    搜了一下目前好像还没有">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,41 +63,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-C_Learning" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/08/20/C_Learning/" class="article-date">
-  <time datetime="2017-08-20T03:05:32.000Z" itemprop="datePublished">2017-08-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="extern-的声明："><a href="#extern-的声明：" class="headerlink" title="extern 的声明："></a>extern 的声明：</h4><p>以下两种正确的对字符串类型声明的写法：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> str [] = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> str[];</div><div class="line"></div><div class="line"><span class="keyword">char</span> *str = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> * str;</div></pre></td></tr></table></figure>
-<p>变量 str 的定义只进行了一次，其空间的分配也只进行了一次，但是对该变量的声明却可以有多次。由于程序的编译和链接是两个分离的步骤，在链接时，通过extern 声明的变量可能类型与定义类型一致，比如 str * 和  str[] 都表示指向字符串数组的指针，但是其内存分布却完全不同。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> str [] = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> str*;</div></pre></td></tr></table></figure>
-<p><img src="./未命名.001.jpeg" alt="未命名.001"></p>
-<h4 id="typedef-类型定义"><a href="#typedef-类型定义" class="headerlink" title="typedef 类型定义"></a>typedef 类型定义</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*fp)</span> <span class="params">(<span class="keyword">int</span>, <span class="keyword">char</span>*)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">person</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">int</span> pid;</div><div class="line">  <span class="keyword">char</span> *name;</div><div class="line">&#125;person;</div></pre></td></tr></table></figure>
-<h4 id="数组的退化"><a href="#数组的退化" class="headerlink" title="数组的退化"></a>数组的退化</h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/20/C_Learning/" data-id="cj6k5he0j0000gp1oblr46d3h" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-sed" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-sed" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/08/20/sed/" class="article-date">
   <time datetime="2017-08-20T03:05:32.000Z" itemprop="datePublished">2017-08-20</time>
@@ -208,55 +178,28 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/08/20/hello-world/" class="article-date">
-  <time datetime="2017-08-20T02:45:48.000Z" itemprop="datePublished">2017-08-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2017/08/20/C_Learning/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          (no title)
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/hello-world/">Hello World</a>
-    </h1>
   
+    <a href="/2017/08/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/20/hello-world/" data-id="cj6k5he0q0001gp1odp6dtic9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
         

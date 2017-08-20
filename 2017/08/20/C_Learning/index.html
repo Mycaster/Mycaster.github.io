@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="extern 的声明：以下两种正确的对字符串类型声明的写法： 12345char str [] = &quot;hello&quot;;extern char str[];char *str = &quot;hello&quot;;extern char * str; 变量 str 的定义只进行了一次，其空间的分配也只进行了一次，但是对该变量的声明却可以有多次。由于程序的编译和链接是两个分离的步骤，在链接时，通过extern 声明的变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/08/20/C_Learning/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="extern 的声明：以下两种正确的对字符串类型声明的写法： 12345char str [] = &quot;hello&quot;;extern char str[];char *str = &quot;hello&quot;;extern char * str; 变量 str 的定义只进行了一次，其空间的分配也只进行了一次，但是对该变量的声明却可以有多次。由于程序的编译和链接是两个分离的步骤，在链接时，通过extern 声明的变量">
+<meta property="og:image" content="http://yoursite.com/2017/08/20/C_Learning/未命名.001.jpeg">
+<meta property="og:updated_time" content="2017-08-20T03:05:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="extern 的声明：以下两种正确的对字符串类型声明的写法： 12345char str [] = &quot;hello&quot;;extern char str[];char *str = &quot;hello&quot;;extern char * str; 变量 str 的定义只进行了一次，其空间的分配也只进行了一次，但是对该变量的声明却可以有多次。由于程序的编译和链接是两个分离的步骤，在链接时，通过extern 声明的变量">
+<meta name="twitter:image" content="http://yoursite.com/2017/08/20/C_Learning/未命名.001.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-C_Learning" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/20/C_Learning/" class="article-date">
+  <time datetime="2017-08-20T03:05:32.000Z" itemprop="datePublished">2017-08-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="extern-的声明："><a href="#extern-的声明：" class="headerlink" title="extern 的声明："></a>extern 的声明：</h4><p>以下两种正确的对字符串类型声明的写法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> str [] = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> str[];</div><div class="line"></div><div class="line"><span class="keyword">char</span> *str = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> * str;</div></pre></td></tr></table></figure>
+<p>变量 str 的定义只进行了一次，其空间的分配也只进行了一次，但是对该变量的声明却可以有多次。由于程序的编译和链接是两个分离的步骤，在链接时，通过extern 声明的变量可能类型与定义类型一致，比如 str * 和  str[] 都表示指向字符串数组的指针，但是其内存分布却完全不同。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> str [] = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> str*;</div></pre></td></tr></table></figure>
+<p><img src="./未命名.001.jpeg" alt="未命名.001"></p>
+<h4 id="typedef-类型定义"><a href="#typedef-类型定义" class="headerlink" title="typedef 类型定义"></a>typedef 类型定义</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*fp)</span> <span class="params">(<span class="keyword">int</span>, <span class="keyword">char</span>*)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">person</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">int</span> pid;</div><div class="line">  <span class="keyword">char</span> *name;</div><div class="line">&#125;person;</div></pre></td></tr></table></figure>
+<h4 id="数组的退化"><a href="#数组的退化" class="headerlink" title="数组的退化"></a>数组的退化</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/20/C_Learning/" data-id="cj6k5he0j0000gp1oblr46d3h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/20/sed/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/08/20/C_Learning/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/20/sed/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/20/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
