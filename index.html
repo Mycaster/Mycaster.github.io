@@ -1,229 +1,863 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
 
-<!-- Head tag -->
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
-  <!--Description-->
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
   
 
-  <!--Author-->
   
-  <meta name="author" content="caster">
-  
-
-  <!--Open Graph Title-->
-  
-      <meta property="og:title" content="caster zone"/>
-  
-  <!--Open Graph Description-->
-  
-  <!--Open Graph Site Name-->
-  <meta property="og:site_name" content="caster zone"/>
-  <!--Type page-->
-  
-      <meta property="og:type" content="website" />
-  
-  <!--Page Cover-->
+    
+    
   
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <!-- Title -->
   
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="caster zone">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="caster zone">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="caster zone">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+
+
   <title>caster zone</title>
+  
 
 
-  <link rel="shortcut icon" href="https://hexo.io/icon/favicon-96x96.png">
 
-  <!-- Custom CSS/Sass -->
-  <link rel="stylesheet" href="/css/style.css">
 
-  <!----------------------------
-  https://github.com/GallenHu/hexo-theme-Daily
 
- _____            _   _
-|  __ \          (_) | |
-| |  | |   __ _   _  | |  _   _
-| |  | |  / _` | | | | | | | | |
-| |__| | | (_| | | | | | | |_| |
-|_____/   \__,_| |_| |_|  \__, |
-                          __/ |
-                         |___/
 
-    --------------------------->
+
 
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
 
-<body>
+  
+  
+    
+  
 
-  <!-- Nav -->
-  <header class="site-header">
-  <div class="header-inside">
-    <div class="logo">
-      <a href="/" rel="home">
-        
-        <img src="https://hexo.io/logo.svg" alt="caster zone" height="60">
-        
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">caster zone</span>
+        <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse">
-        <ul class="navbar-nav">
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/20/C_Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="caster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="caster zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/20/C_Learning/" itemprop="url">C_Learning</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-20T14:58:11+08:00">
+                2017-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
           
           
-            <li>
-              <a href="/.">
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4><span id="extern-的声明">extern 的声明：</span></h4><p>以下两种正确的对字符串类型声明的写法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> str [] = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> str[];</div><div class="line"></div><div class="line"><span class="keyword">char</span> *str = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> * str;</div></pre></td></tr></table></figure>
+<p>变量 str 的定义只进行了一次，其空间的分配也只进行了一次，但是对该变量的声明却可以有多次。由于程序的编译和链接是两个分离的步骤，在链接时，通过extern 声明的变量可能类型与定义类型一致，比如 str * 和  str[] 都表示指向字符串数组的指针，但是其内存分布却完全不同。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> str [] = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> str*;</div></pre></td></tr></table></figure>
+<p><img src="./未命名.001.jpeg" alt="未命名.001"></p>
+<h4><span id="typedef-类型定义">typedef 类型定义</span></h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*fp)</span> <span class="params">(<span class="keyword">int</span>, <span class="keyword">char</span>*)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">person</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">int</span> pid;</div><div class="line">  <span class="keyword">char</span> *name;</div><div class="line">&#125;person;</div></pre></td></tr></table></figure>
+<h4><span id="数组的退化">数组的退化</span></h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/20/sed/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="caster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="caster zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
                 
-                  home
-                
+                <a class="post-title-link" href="/2017/08/20/sed/" itemprop="url">sed</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-20T14:58:11+08:00">
+                2017-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2><span id="sed-教程">sed 教程</span></h2><!-- toc -->
+<ul>
+<li><a href="#1-简介">1. 简介</a></li>
+<li><a href="#2-sed-基础入门">2. sed 基础入门</a></li>
+<li><a href="#3-完整的sed命令">3. 完整的sed命令</a><ul>
+<li><a href="#options-address-command">options , Address, Command</a></li>
+<li><a href="#patternspace">PatternSpace</a></li>
+</ul>
+</li>
+<li><a href="#4-sed-options">4. sed options</a></li>
+<li><a href="#5-sed-script-addresscommand">5. sed script [AddressCommand]</a><ul>
+<li><a href="#41-script-简介">4.1 script 简介</a></li>
+<li><a href="#42-sed-command">4.2 sed Command</a><ul>
+<li><a href="#特殊的command-s">特殊的Command s</a></li>
+<li><a href="#常用-command">常用 Command</a></li>
+<li><a href="#不常用command">不常用Command</a></li>
+<li><a href="#需要换行的-command">需要换行的 Command</a></li>
+<li><a href="#325-sed-commands-总结">3.2.5 sed commands 总结</a></li>
+</ul>
+</li>
+<li><a href="#33-sed-address">3.3 sed Address</a></li>
+<li><a href="#23-退出状态">2.3 退出状态</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2><span id="1-简介">1. 简介</span></h2><p>​    sed 是 Linux 下常用的流式文本处理器，将输入流按行处理，可以满足大部分场景的文本处理需要。然而第一次使用的时候基本是懵逼的，除了最简单的 s/a/b/g ，其余的语法都是似懂非懂，对于稍微复杂一点的场景，就要开启 [ Google-&gt;尝试-&gt;不管用-&gt;继续Google ] 的大循环 =.= 。</p>
+<p>​    搜了一下目前好像还没有系统的中文 sed 教程，现在抽空从整体上梳理一下 sed 的使用。当然这篇文章参考了 <a href="http://coolshell.cn/articles/9104.html" target="_blank" rel="external">陈皓大神的文章</a>  和 <a href="https://www.gnu.org/software/sed/manual/sed.html" target="_blank" rel="external">sed 的英文手册</a></p>
+<h2><span id="2-sed-基础入门">2. sed 基础入门</span></h2><p>首先，万事开头难，假设你还只是个小白，所以开始要先讲一些简单的东西。如果已经学会了一些技巧请移步下一章。</p>
+<p>最简单的比如，要将 input.txt 中的 “hello” 替换成 “world”，并输出到 ouput.txt 中，你可以这样做</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed  's/hello/world/'  input.txt  &gt; output.txt</div></pre></td></tr></table></figure>
+<p>或者在每一行的前面加内容，可以这样</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed 's/^/##/g' input.txt</div></pre></td></tr></table></figure>
+<p>或者在每一行的末尾加内容，可以这样</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed 's/$/===/g' input.txt</div></pre></td></tr></table></figure>
+<p>当然，也可以不指定 inputfile，比如使用管道作为输入流。以下的操作都是等价的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sed 's/hello/world/' input.txt &gt; output.txt</div><div class="line">sed 's/hello/world/'  &lt; input.txt &gt; output.txt</div><div class="line">cat input.txt | sed 's/hello/world/' &gt; output.txt </div><div class="line"><span class="meta">#</span>友情提示, world 后面的 / 不能少噢，不然会提示 </div><div class="line"><span class="meta">#</span>sed: -e expression #1, char 13: unterminated `s' command</div></pre></td></tr></table></figure>
+<p>sed 默认是不会修改源文件的，如果不想输出到 output.txt　而是直接在源文件上修改，使用　-i  选项</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed -i 's/hello/world/' input.txt</div></pre></td></tr></table></figure>
+<p>默认的 sed 会打印输出所有处理过的输入 (除了被修改或被删除的行)  ，可以使用 -n 忽略输出，并使用 p 来打印特定行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed -n '1p' input.txt   #只打印第1行</div></pre></td></tr></table></figure>
+<p>sed 可以同时处理多个文件，比如打印出第一个文件的第一行和最后一个文件的最后一行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed -n '1p ; $p' 1.txt 2.txt 3.txt  # $表示最后一行，这里将会输出 3.txt 的最后一行</div></pre></td></tr></table></figure>
+<h2><span id="3-完整的sed命令">3. 完整的sed命令</span></h2><p>一个完整的的 sed 命令形式如下，这个公式概括了 sed 几乎所有的使用形式，主要分为 options ，Address，Command 三部分。一个 AddressCommand 即是一个 script</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed [options] 'AddressCommand' [inputfile]</div></pre></td></tr></table></figure>
+<h4><span id="options-address-command">options , Address, Command</span></h4><ul>
+<li><p>[options] </p>
+<p>sed 的处理选项，用于指定处理方式，比如 -n （静默模式）-i（直接修改源文件）-f （使用脚本文件）等等</p>
+</li>
+</ul>
+<ul>
+<li><p>Address </p>
+<p>script 的一部份，用于指定处理范围，可以<strong>指定行范围</strong>  （如 3,5 表示处理3到5行的数据），或者用<strong>正则表达式</strong>（如  /hello/ 表示处理匹配了关键词 hello 的数据）指定处理范围，也可以混合使用，后续会重点讲到。</p>
+</li>
+<li><p>Command</p>
+<p>script 的一部份，当Address 指定了需要处理的数据范围时，command 用于处理该范围内的数据，包括编辑，删除，打印等等操作，后续会讲到。</p>
+</li>
+</ul>
+<p>这里还需要重点理解 PatternSpace 的概念。</p>
+<h4><span id="patternspace">PatternSpace</span></h4><p>首先要知道，sed 是按行处理文本流的，即有一个循环每次去读取一行的数据，这一行的数据会被复制到当前的模式空间（PatternSpace），然后根据 AddressCommand 的规则去处理。所以 PatternSpace 类似于一个缓冲区，不断的将当前行放到缓冲区去处理。</p>
+<p>伪代码可表示如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">foreach line in file&#123;</div><div class="line">    #1. 读取当前行，放到 PatternSpace 中</div><div class="line">    PatternSpace &lt;= line</div><div class="line">    </div><div class="line">    #2. 对 PatternSpace 中的数据执行 AddressCommand 脚本</div><div class="line">    PatternSpace &lt;= EXEC(Address,Command,PatternSpace)</div><div class="line">    </div><div class="line">    #3. 如果 options 中没有指定 -n (即静默模式，不打印) 则打印出当前模式空间的处理结果</div><div class="line">    if (sed options hasn't "-n")&#123;</div><div class="line">      print PatternSpace</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>后面还会讲到如何替换PatternSpace中的数据。</p>
+<h2><span id="4-sed-options">4. sed options</span></h2><p>sed 的 options  有一堆，下面只列出了常用的部分, 其余的暂时还没用到过…等用到了再补充说明吧</p>
+<ul>
+<li>-n  : 不打印模式空间的内容</li>
+<li>-i   : 直接修改源文件</li>
+<li>–quiet</li>
+<li>–slient</li>
+</ul>
+<h2><span id="5-sed-script-addresscommand">5. sed script [AddressCommand]</span></h2><h3><span id="41-script-简介">4.1 script 简介</span></h3><p>如 2.1 所述，sed 中最重要的就是 Address 和 Command ,前者用于指定处理范围，后者指定处理方式。</p>
+<p>AddressCommand 组合起来就是一个 script，一个sed 语句可以包含多个 script，可以通过 -e , -f ，–expression 和 –file 选项来指定。</p>
+<p>在上述的标准形式 AddressCommand  中，其实还包含另一个参数，就是Command 也可以加参数，完整的形式应该是这个样子的: </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Address]X[options]</div></pre></td></tr></table></figure>
+<p>X[options] 合起来表示一个 command，其中 X 是 sed 中的一个单个字符，比如 p (打印)，d(删除)，q(退出)等等，而 X 后面的[options]表示这个命令可以带的参数，可带可不带，比如 q42 表示退出后返回状态码 42</p>
+<p>以下用几个简单的命令理解一下 [Address]X[options] 的含义</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 30,35    Address, 指定处理30-35行的数据</div><div class="line"><span class="meta">#</span> d 	   Command, 删除命令</div><div class="line">sed '30,35d' input.txt </div><div class="line"></div><div class="line"><span class="meta">#</span> /^foo/   Address, 正则表达式，匹配以 foo 开头的所有行</div><div class="line"><span class="meta">#</span> q		   Command, 退出命令</div><div class="line"><span class="meta">#</span> 42       Command 的参数，表示返回42的状态码</div><div class="line">sed '/^foo/q42' input.txt &gt; output.txt</div></pre></td></tr></table></figure>
+<p>如果是多个 script , 可以用 -e 或者 -f 指定，比如下面的语句都是等价的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 先删除以 foo 开头的所有行，然后将所有行中的 hello 替换为 world</div><div class="line">sed '/^foo/d ; s/hello/world/' input.txt</div><div class="line"><span class="meta">#</span>将多个Command 用 -e 表示</div><div class="line">sed -e '/^foo/d' -e 's/hello/world/' input.txt</div><div class="line"><span class="meta">#</span>指定 script 文件，执行 script.sed 文件中的 Command</div><div class="line">echo '/^foo/d' &gt; script.sed</div><div class="line">echo 's/hello/world/' &gt;&gt; script.sed</div><div class="line">sed -f script.sed input.txt</div><div class="line"><span class="meta">#</span>同时使用-e 和 -f</div><div class="line">echo 's/hello/world/' &gt; script2.sed</div><div class="line">sed -e '/^foo/d' -f script2.sed input.txt</div></pre></td></tr></table></figure>
+<h3><span id="42-sed-command">4.2 sed Command</span></h3><h4><span id="特殊的command-s">特殊的Command s</span></h4><p>s 大概是sed 中最重要的命令，因为有非常多的组合操作，所以单独拿出来讲。在文章的开头已经举了一些简单的例子。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">'s/regexp/replacement/flags'</div><div class="line"><span class="meta">#</span>当然中间的分割符也可以使用 | 或 @ 或 # 之类的，比如以下都是等价的</div><div class="line">'s|regexp|replacement|flags'  </div><div class="line">'s@regexp@replacement@flags'</div><div class="line">'s#regexp#replacement#flags'</div></pre></td></tr></table></figure>
+<p>道理很简单，找到所有匹配 regexp 的内容，并替换成 replacement  </p>
+<p>replacement 中可以包含 \n   (n 是1-9 的数字)，表示所有匹配结果中的第几个结果，或者用 &amp; 表示这一行中所有匹配的结果。</p>
+<p>字符 /  可以</p>
+<h4><span id="常用-command">常用 Command</span></h4><p><strong>d</strong></p>
+<p>删除当前PatternSapce 的内容，并立刻进入下一个循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h4><span id="不常用command">不常用Command</span></h4><h4><span id="需要换行的-command">需要换行的 Command</span></h4><p> <strong>a/c/i (append/change/insert)</strong> </p>
+<p>上述命令会将后面的command 也作为文本内容一起处理，这会产生语法上的歧义。</p>
+<ol>
+<li>比如下面在第一行末尾加上Hello，同时删除第二行，但是结果是 a 后面的所有内容都被append 在1 后面了</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">seq 2 | sed '1aHello ; 2d'</div><div class="line">1</div><div class="line">Hello ; 2d</div><div class="line">2</div></pre></td></tr></table></figure>
+<p>正确的写法应该是用 -e 分开，或者换行进行下一个Command</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> seq 2 | sed '1aHello</div><div class="line">2d'</div><div class="line">1</div><div class="line">Hello</div><div class="line"><span class="meta">$</span> seq 2 | sed -e '1aHello' -e '2d'</div><div class="line">1</div><div class="line">Hello</div></pre></td></tr></table></figure>
+<p><strong>#(注释)</strong></p>
+<p>注释会忽略当前行之后的所有内容</p>
+<p><strong>r, R, w, W (读写文件的命令)</strong></p>
+<p><strong>e (执行命令)</strong></p>
+<p><strong>s///[we]  (以w 或e 作为flag结尾的s命令)</strong></p>
+<h4><span id="325-sed-commands-总结">3.2.5 sed commands 总结</span></h4><p>以下列出的所有Commands , GNU sed 都支持。有一些是标准的 POSIX commands , 其余的是 GNU 扩展。</p>
+<ul>
+<li><p>a\</p>
+<p>text</p>
+<p>​</p>
+</li>
+</ul>
+<p>​       a text</p>
+<ul>
+<li>b label </li>
+</ul>
+<h3><span id="33-sed-address">3.3 sed Address</span></h3><p>Address 决定了哪些行会被 sed 的Command 处理，比如下面的命令只会将第144行的hello替换成world</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed '144s/hello/world/' input.txt</div></pre></td></tr></table></figure>
+<p>如果 Address 为空的话，就会对所有行都用Command处理</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed 's/hello/world/' input.txt</div></pre></td></tr></table></figure>
+<p>除了使用数字指定处理范围，还可以用正则，下面对包含关键字apple 的行，将hello替换为world</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed '/apple/s/hello/wolrd/g' input.txt</div></pre></td></tr></table></figure>
+<h3><span id="23-退出状态">2.3  退出状态</span></h3><p>sed 可以自定义执行后退出的状态码，用于shell 中判断执行结果。0 表示成功， 1表示输入的命令格式不对，2表示输入的文件无法打开(比如不存在，没权限之类的) ，4 表示 I/O 错误。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="caster" />
+          <p class="site-author-name" itemprop="name">caster</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
-            </li>
+            </div>
           
-            <li>
-              <a href="/archives">
-                
-                  archive
-                
-              </a>
-            </li>
+
           
-        </ul>
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
       </div>
-      <!-- /.navbar-collapse -->
-    </nav>
-    <div class="button-wrap">
-      <button class="menu-toggle">Primary Menu</button>
-    </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">caster</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
   </div>
-</header>
 
+  <span class="post-meta-divider">|</span>
 
-  <!-- Main Content -->
-  <div class="site-content home">
-  <main class="content-area">
-    
-      
-        <div class="even">
-          
-
-<div class="container">
-  <article class="post">
-    
-    <h1 class="entry-title">
-      <a href="/2017/08/20/C_Learning/" rel="bookmark">
-        C_Learning  
-      </a>
-    </h1>
-    
-
-    <p class="posted-on">
-    2017-08-20
-    </p>
-    <div class="tags-links">
-      
-    </div>
-  </article>
-</div>
-        </div> 
-      
-    
-      
-        <div class="odd">
-          
-
-<div class="container">
-  <article class="post">
-    
-    <h1 class="entry-title">
-      <a href="/2017/08/20/sed/" rel="bookmark">
-        sed  
-      </a>
-    </h1>
-    
-
-    <p class="posted-on">
-    2017-08-20
-    </p>
-    <div class="tags-links">
-      
-    </div>
-  </article>
-</div>
-        </div>
-      
-    
-
-    
-
-  </main>
-</div>
-
-  <!-- Footer -->
-  <!-- Footer-widgets -->
-<div class="footer-widgets">
-  <div class="row inside-wrapper">
-    <div class="col-1-3">
-      <aside>
-        <h1 class="widget-title">关于本站</h1>
-        <div class="custom-widget-content">
-          
-          <ul><li><a href="https://github.com/GallenHu/hexo-theme-Daily">如何自定义这里的内容(配置教程)?</a></li></ul>
-        </div>
-      </aside>
-    </div>
-    <div class="col-1-3">
-      <aside>
-        <h1 class="widget-title">Contact</h1>
-        <div class="widget-text">
-          
-            
-              <a href="https://github.com/GallenHu" class="icon icon-github" target="_blank">github</a>
-            
-          
-        </div>
-      </aside>
-    </div>
-    <div class="col-1-3">
-      <aside>
-        <h1 class="widget-title">Search</h1>
-        <div class="widget-text">
-          <form onSubmit="return appDaily.submitSearch('')">
-            <p>
-              <input type="text" placeholder="search..." id="homeSearchInput">
-            </p>
-            <!-- <input type="submit" value="GO"> -->
-          </form>
-        </div>
-      </aside>
-    </div>
+  <div class="theme-info">
+    Theme &mdash;
+    <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+      NexT.Muse
+    </a>
   </div>
-</div>
-<!-- Footer -->
-<footer class="site-info">
-  <p>
-    <span>caster zone &copy; 2017</span>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
     
-      <span class="split">|</span>
-      <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> with Theme <a href="https://github.com/GallenHu/hexo-theme-Daily" target="_blank">Daily</a></span>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
     
-  </p>
-</footer>
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
-  <!-- After footer scripts -->
-  <!-- scripts -->
-<script src="/js/app.js"></script>
 
 
 
 
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
-
 </html>
