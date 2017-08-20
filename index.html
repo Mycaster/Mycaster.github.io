@@ -61,48 +61,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-C_Learning" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/08/20/C_Learning/" class="article-date">
-  <time datetime="2017-08-20T06:58:11.000Z" itemprop="datePublished">2017-08-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/20/C_Learning/">C_Learning</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4><span id="extern-的声明">extern 的声明：</span></h4><p>以下两种正确的对字符串类型声明的写法：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> str [] = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> str[];</div><div class="line"></div><div class="line"><span class="keyword">char</span> *str = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> * str;</div></pre></td></tr></table></figure>
-<p>变量 str 的定义只进行了一次，其空间的分配也只进行了一次，但是对该变量的声明却可以有多次。由于程序的编译和链接是两个分离的步骤，在链接时，通过extern 声明的变量可能类型与定义类型一致，比如 str * 和  str[] 都表示指向字符串数组的指针，但是其内存分布却完全不同。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> str [] = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> str*;</div></pre></td></tr></table></figure>
-<p><img src="./未命名.001.jpeg" alt="未命名.001"></p>
-<h4><span id="typedef-类型定义">typedef 类型定义</span></h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*fp)</span> <span class="params">(<span class="keyword">int</span>, <span class="keyword">char</span>*)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">person</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">int</span> pid;</div><div class="line">  <span class="keyword">char</span> *name;</div><div class="line">&#125;person;</div></pre></td></tr></table></figure>
-<h4><span id="数组的退化">数组的退化</span></h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/20/C_Learning/" data-id="cj6kdzbly00001f1o6ic7dmx0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-sed" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/08/20/sed/" class="article-date">
@@ -247,7 +205,49 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/20/sed/" data-id="cj6kdzbm300011f1othn93irs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/20/sed/" data-id="cj6ke3i6k00004k1oy656uqb7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C_Learning" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/20/C_Learning/" class="article-date">
+  <time datetime="2017-08-20T06:58:11.000Z" itemprop="datePublished">2017-08-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/20/C_Learning/">C_Learning</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4><span id="extern-的声明">extern 的声明：</span></h4><p>以下两种正确的对字符串类型声明的写法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> str [] = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> str[];</div><div class="line"></div><div class="line"><span class="keyword">char</span> *str = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> * str;</div></pre></td></tr></table></figure>
+<p>变量 str 的定义只进行了一次，其空间的分配也只进行了一次，但是对该变量的声明却可以有多次。由于程序的编译和链接是两个分离的步骤，在链接时，通过extern 声明的变量可能类型与定义类型一致，比如 str * 和  str[] 都表示指向字符串数组的指针，但是其内存分布却完全不同。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> str [] = <span class="string">"hello"</span>;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">char</span> str*;</div></pre></td></tr></table></figure>
+<p><img src="./未命名.001.jpeg" alt="未命名.001"></p>
+<h4><span id="typedef-类型定义">typedef 类型定义</span></h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*fp)</span> <span class="params">(<span class="keyword">int</span>, <span class="keyword">char</span>*)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">person</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">int</span> pid;</div><div class="line">  <span class="keyword">char</span> *name;</div><div class="line">&#125;person;</div></pre></td></tr></table></figure>
+<h4><span id="数组的退化">数组的退化</span></h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/20/C_Learning/" data-id="cj6ke3i6p00014k1ozfcbkc8e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -287,11 +287,11 @@
       <ul>
         
           <li>
-            <a href="/2017/08/20/C_Learning/">C_Learning</a>
+            <a href="/2017/08/20/sed/">sed</a>
           </li>
         
           <li>
-            <a href="/2017/08/20/sed/">sed</a>
+            <a href="/2017/08/20/C_Learning/">C_Learning</a>
           </li>
         
       </ul>
