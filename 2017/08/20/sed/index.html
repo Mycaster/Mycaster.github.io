@@ -1,92 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
 <head>
   <meta charset="utf-8">
-  
-  
-  <meta name="description" content="sed 教程&#34;#&#34;[TOC]
-1. 简介&#34;#&#34;​    sed 是 Linux 下常用的流式文本处理器，将输入流按行处理，可以满足大部分场景的文本处理需要。然而第一次使用的时候基本是懵逼的，除了最简单的 s/a/b/g ，其余的语法都是似懂非懂，对于稍微复杂一点的场景，就要开启 [ Google-&amp;" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--Description-->
   
 
+  <!--Author-->
   
+  <meta name="author" content="caster">
   
+
+  <!--Open Graph Title-->
   
+      <meta property="og:title" content="sed"/>
   
+  <!--Open Graph Description-->
   
+  <!--Open Graph Site Name-->
+  <meta property="og:site_name" content="caster zone"/>
+  <!--Type page-->
   
-  <title>sed | caster zone</title>
+      <meta property="og:type" content="article" />
+  
+  <!--Page Cover-->
+  
+
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="sed 教程&quot;#&quot;[TOC] 1. 简介&quot;#&quot;​    sed 是 Linux 下常用的流式文本处理器，将输入流按行处理，可以满足大部分场景的文本处理需要。然而第一次使用的时候基本是懵逼的，除了最简单的 s/a/b/g ，其余的语法都是似懂非懂，对于稍微复杂一点的场景，就要开启 [ Google-&amp;gt;尝试-&amp;gt;不管用-&amp;gt;继续Google ] 的大循环 =.= 。 ​    搜了一下目">
-<meta property="og:type" content="article">
-<meta property="og:title" content="sed">
-<meta property="og:url" content="http://yoursite.com/2017/08/20/sed/index.html">
-<meta property="og:site_name" content="caster zone">
-<meta property="og:description" content="sed 教程&quot;#&quot;[TOC] 1. 简介&quot;#&quot;​    sed 是 Linux 下常用的流式文本处理器，将输入流按行处理，可以满足大部分场景的文本处理需要。然而第一次使用的时候基本是懵逼的，除了最简单的 s/a/b/g ，其余的语法都是似懂非懂，对于稍微复杂一点的场景，就要开启 [ Google-&amp;gt;尝试-&amp;gt;不管用-&amp;gt;继续Google ] 的大循环 =.= 。 ​    搜了一下目">
-<meta property="og:updated_time" content="2017-08-20T03:20:01.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sed">
-<meta name="twitter:description" content="sed 教程&quot;#&quot;[TOC] 1. 简介&quot;#&quot;​    sed 是 Linux 下常用的流式文本处理器，将输入流按行处理，可以满足大部分场景的文本处理需要。然而第一次使用的时候基本是懵逼的，除了最简单的 s/a/b/g ，其余的语法都是似懂非懂，对于稍微复杂一点的场景，就要开启 [ Google-&amp;gt;尝试-&amp;gt;不管用-&amp;gt;继续Google ] 的大循环 =.= 。 ​    搜了一下目">
+
+  <!-- Title -->
   
-  
-    <link rel="icon" href="/css/images/favicon.ico">
-  
+  <title>sed - caster zone</title>
+
+
+  <link rel="shortcut icon" href="https://hexo.io/icon/favicon-96x96.png">
+
+  <!-- Custom CSS/Sass -->
   <link rel="stylesheet" href="/css/style.css">
-  
 
-  
-  <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+  <!----------------------------
+  https://github.com/GallenHu/hexo-theme-Daily
+
+ _____            _   _
+|  __ \          (_) | |
+| |  | |   __ _   _  | |  _   _
+| |  | |  / _` | | | | | | | | |
+| |__| | | (_| | | | | | | |_| |
+|_____/   \__,_| |_| |_|  \__, |
+                          __/ |
+                         |___/
+
+    --------------------------->
+
 </head>
-<body class="home blog custom-background custom-font-enabled single-author">
-  <div id="page" class="hfeed site">
-      <header id="masthead" class="site-header" role="banner">
-    <hgroup>
-      <h1 class="site-title">
-        <a href="/" title="caster zone" rel="home">caster zone</a>
-      </h1>
-      
-        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
-        <h2 class="site-description"><script>hitokoto();</script></h2>
-      
-    </hgroup>
 
-    <nav id="site-navigation" class="main-navigation" role="navigation">
-            <button class="menu-toggle">菜单</button>
-            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
-            <div class="menu-main-container">
-                <ul id="menu-main" class="nav-menu">
+
+<body>
+
+  <!-- Nav -->
+  <header class="site-header">
+  <div class="header-inside">
+    <div class="logo">
+      <a href="/" rel="home">
+        
+        <img src="https://hexo.io/logo.svg" alt="caster zone" height="60">
+        
+      </a>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse">
+        <ul class="navbar-nav">
+          
+          
+            <li>
+              <a href="/.">
                 
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                  home
                 
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+              </a>
+            </li>
+          
+            <li>
+              <a href="/archives">
                 
-                </ul>
-            </div>
+                  archive
+                
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
     </nav>
+    <div class="button-wrap">
+      <button class="menu-toggle">Primary Menu</button>
+    </div>
+  </div>
 </header>
-      <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-sed" class="post-sed post type-post status-publish format-standard hentry">
-    <!---->
 
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title article-title">
-      sed
-    </h1>
-  
 
-        
-        <div class="comments-link">
+  <!-- Main Content -->
+  <div class="content-area">
+  <div class="post">
+    <!-- Post Content -->
+    <div class="container">
+      <article>
+        <!-- Title date & tags -->
+        <div class="post-header">
+          <h1 class="entry-title">
+            sed
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/08/20/sed/" data-id="cj6k81k4u0000hu1ogflvzsnl" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h2><span id="sed-jiao-cheng">sed 教程</span><a href="sed-jiao-cheng" class="header-anchor">"#"</a></h2><p>[TOC]</p>
+          </h1>
+          <p class="posted-on">
+          2017-08-20
+          </p>
+          <div class="tags-links">
+            
+              
+            
+          </div>
+        </div>
+        <!-- Post Main Content -->
+        <div class="entry-content">
+          <h2><span id="sed-jiao-cheng">sed 教程</span><a href="sed-jiao-cheng" class="header-anchor">"#"</a></h2><p>[TOC]</p>
 <h2><span id="1-jian-jie">1. 简介</span><a href="1-jian-jie" class="header-anchor">"#"</a></h2><p>​    sed 是 Linux 下常用的流式文本处理器，将输入流按行处理，可以满足大部分场景的文本处理需要。然而第一次使用的时候基本是懵逼的，除了最简单的 s/a/b/g ，其余的语法都是似懂非懂，对于稍微复杂一点的场景，就要开启 [ Google-&gt;尝试-&gt;不管用-&gt;继续Google ] 的大循环 =.= 。</p>
 <p>​    搜了一下目前好像还没有系统的中文 sed 教程，现在抽空从整体上梳理一下 sed 的使用。当然这篇文章参考了 <a href="http://coolshell.cn/articles/9104.html" target="_blank" rel="external">陈皓大神的文章</a>  和 <a href="https://www.gnu.org/software/sed/manual/sed.html" target="_blank" rel="external">sed 的英文手册</a></p>
 <h2><span id="2-sed-ji-chu-ru-men">2. sed 基础入门</span><a href="2-sed-ji-chu-ru-men" class="header-anchor">"#"</a></h2><p>首先，万事开头难，假设你还只是个小白，所以开始要先讲一些简单的东西。如果已经学会了一些技巧请移步下一章。</p>
@@ -180,83 +221,90 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed '/apple/s/hello/wolrd/g' input.txt</div></pre></td></tr></table></figure>
 <h3><span id="2-3-tui-chu-zhuang-tai">2.3  退出状态</span><a href="2-3-tui-chu-zhuang-tai" class="header-anchor">"#"</a></h3><p>sed 可以自定义执行后退出的状态码，用于shell 中判断执行结果。0 表示成功， 1表示输入的命令格式不对，2表示输入的文件无法打开(比如不存在，没权限之类的) ，4 表示 I/O 错误。</p>
 
+        </div>
+      </article>
+    </div>
+    <!-- Comments -->
+    <div class="container">
       
-    </div><!-- .entry-content -->
+<section id="comment">
+  <!-- <h1 class="title">Comments</h1> -->
 
-    <footer class="entry-meta">
-    <a href="/2017/08/20/sed/">
-    <time datetime="2017-08-20T03:19:21.000Z" class="entry-date">
-        2017-08-20
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-    
-
-
-
-
-
-
-</div></div>
-        <div id="secondary" class="widget-area" role="complementary">
   
-    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
-    <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+</section>
+
+
     </div>
-</form></aside>
-  
-    
-  
-    
-  
-    
-  <aside class="widget">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget-content">
-      <ul>
-        
-          <li>
-            <a href="/2017/08/20/sed/">sed</a>
-          </li>
-        
-      </ul>
+    <!-- Pre or Next -->
+    <div class="nav-links">
+      
+      
     </div>
-  </aside>
-
-  
-    
-  
-    
-  
-</div>
-      </div>
-      <footer id="colophon" role="contentinfo">
-    <p>&copy; 2017 caster
-    All rights reserved.</p>
-    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
-</footer>
-    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-
-<script src="/js/jquery-2.0.3.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-<script src="/js/navigation.js"></script>
-
-<div id="bg"></div>
 
   </div>
+</div>
+
+
+  <!-- Footer -->
+  <!-- Footer-widgets -->
+<div class="footer-widgets">
+  <div class="row inside-wrapper">
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">关于本站</h1>
+        <div class="custom-widget-content">
+          
+          <ul><li><a href="https://github.com/GallenHu/hexo-theme-Daily">如何自定义这里的内容(配置教程)?</a></li></ul>
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">Contact</h1>
+        <div class="widget-text">
+          
+            
+              <a href="https://github.com/GallenHu" class="icon icon-github" target="_blank">github</a>
+            
+          
+        </div>
+      </aside>
+    </div>
+    <div class="col-1-3">
+      <aside>
+        <h1 class="widget-title">Search</h1>
+        <div class="widget-text">
+          <form onSubmit="return appDaily.submitSearch('')">
+            <p>
+              <input type="text" placeholder="search..." id="homeSearchInput">
+            </p>
+            <!-- <input type="submit" value="GO"> -->
+          </form>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="site-info">
+  <p>
+    <span>caster zone &copy; 2017</span>
+    
+      <span class="split">|</span>
+      <span>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> with Theme <a href="https://github.com/GallenHu/hexo-theme-Daily" target="_blank">Daily</a></span>
+    
+  </p>
+</footer>
+
+
+  <!-- After footer scripts -->
+  <!-- scripts -->
+<script src="/js/app.js"></script>
+
+
+
+
+
 </body>
+
 </html>
