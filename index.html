@@ -1,25 +1,57 @@
-<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>caster zone</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">caster zone</h1><a id="logo" href="/.">caster zone</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> archives</i></a><a href="/coding/"><i class="fa fa-code"> coding</i></a><a href="/about-me/"><i class="fa fa-user"> about me</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2017/08/25/Q&amp;A/">Q&amp;A</a></h1><div class="post-meta">2017-08-25</div><div class="post-content"><!-- toc -->
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>caster zone</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">caster zone</h1><a id="logo" href="/.">caster zone</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> archives</i></a><a href="/coding/"><i class="fa fa-code"> coding</i></a><a href="/about-me/"><i class="fa fa-user"> about me</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2017/08/25/c学习笔记/">c学习笔记</a></h1><div class="post-meta">2017-08-25</div><div class="post-content"><!-- toc -->
 <ul>
-<li><a href="#questionanwsers">Question&amp;Anwsers:</a><ul>
-<li><a href="#使用linux-epoll模型水平触发模式level-triggered当socket可写时会不停的触发socket可写的事件如何处理">使用Linux epoll模型，水平触发模式（Level-Triggered）；当socket可写时，会不停的触发socket可写的事件，如何处理？</a></li>
-<li><a href="#从socket读数据时socket缓存里的数据可能超过用户缓存的长度如何处理-例如socket缓存有8kb的数据而你的缓存只有2kb空间">从socket读数据时，socket缓存里的数据，可能超过用户缓存的长度，如何处理？ 例如，socket缓存有8kB的数据，而你的缓存只有2kB空间。</a></li>
-<li><a href="#向socket发送数据时-可能只发送了用户缓存里的一半如何处理例如需要向socket发送8kb数据返回值只有2kb发送成功">向socket发送数据时， 可能只发送了用户缓存里的一半，如何处理？例如，需要向socket发送8kB数据，返回值只有2kB发送成功。</a></li>
-<li><a href="#非阻塞connect如何实现">非阻塞connect（）如何实现？</a></li>
-<li><a href="#sizeof问题">sizeof()问题</a></li>
-<li><a href="#实现字符串比较函数-strcmpchar-src-char-sub">实现字符串比较函数 strcmp(char <em>src, char </em> sub)*</a></li>
-<li><a href="#实现内存拷贝函数-strcpyvoiddst-char-src-size_t-len">实现内存拷贝函数 strcpy(void<em>dst, char </em> src, size_t len)</a></li>
-<li><a href="#条件变量的如何使用-你使用的线程函数是什么">条件变量的如何使用? 你使用的线程函数是什么？</a></li>
-<li><a href="#deamon进程如何实现">deamon进程如何实现</a></li>
-<li><a href="#http和cgi是什么">HTTP和CGI是什么?</a></li>
-<li><a href="#tcp的三次握手-time_wait和close_wait状态是什么">TCP的三次握手， TIME_WAIT和CLOSE_WAIT状态是什么？</a></li>
-<li><a href="#linux-命令">Linux 命令</a></li>
+<li><a href="#extern-的声明">extern 的声明：</a></li>
+<li><a href="#typedef-类型定义">typedef 类型定义</a></li>
+<li><a href="#数组的退化">数组的退化</a></li>
+</ul>
+<!-- tocstop --></div><p class="readmore"><a href="/2017/08/25/c学习笔记/">Read More</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/08/25/ElasticSearch后台开发实践/">ElasticSearch后台开发实践</a></h1><div class="post-meta">2017-08-25</div><div class="post-content"><!-- toc -->
+<ul>
+<li><a href="#es-服务端开发实践">ES 服务端开发实践</a><ul>
+<li><a href="#es-简介">ES 简介</a><ul>
+<li><a href="#索引分片副本">索引，分片，副本</a></li>
+<li><a href="#rest-api-接口">REST API 接口</a></li>
+</ul>
+</li>
+<li><a href="#es-开发步骤">ES 开发步骤</a><ul>
+<li><a href="#setting">setting</a><ul>
+<li><a href="#获取当前-setting">获取当前 setting</a></li>
+<li><a href="#分片-索引和副本集等设置">分片, 索引和副本集等设置</a></li>
+<li><a href="#analyzer-自定义分析器设置">analyzer 自定义分析器设置</a></li>
+</ul>
+</li>
+<li><a href="#mapping">mapping</a><ul>
+<li><a href="#获取当前-mapping">获取当前 mapping</a></li>
+<li><a href="#简单数据类型及自动推导">简单数据类型及自动推导</a></li>
+<li><a href="#复杂数据类型">复杂数据类型</a></li>
+</ul>
+</li>
+<li><a href="#dsl">DSL</a><ul>
+<li><a href="#增删改">增删改</a></li>
+<li><a href="#查询">查询</a><ul>
+<li><a href="#term-和-terms">term 和 terms</a></li>
+<li><a href="#range">range</a></li>
+<li><a href="#and-should-must-must_not">and, should, must, must_not</a></li>
+<li><a href="#match-和-match_phrase">match 和 match_phrase</a></li>
+<li><a href="#filter-和-query">filter 和 query</a></li>
+</ul>
+</li>
+<li><a href="#使用-go-写-es-导入工具">使用 Go 写 es 导入工具</a></li>
+<li><a href="#重建分片和索引并导入数据">重建分片和索引，并导入数据</a></li>
 </ul>
 </li>
 </ul>
-<!-- tocstop --></div><p class="readmore"><a href="/2017/08/25/Q&amp;A/">Read More</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/08/25/entry/">entry</a></h1><div class="post-meta">2017-08-25</div><div class="post-content"><p>entry　是面向客户端的接入程序，相当于反向代理服务器，将客户端的请求下发到　dispather </p>
-<p>entry 使用的负载均衡模式</p>
-<p>entryctrl -&gt; entrywrk：一个entryctrl 管理多个entrywrk</p>
-<h4><span id="entryctrl-的流程">entryctrl 的流程</span></h4><ul></div><p class="readmore"><a href="/2017/08/25/entry/">Read More</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/08/25/mailRFC/">mailRFC</a></h1><div class="post-meta">2017-08-25</div><div class="post-content"><!-- toc -->
+</li>
+<li><a href="#es-开发中的问题集合">ES 开发中的问题集合</a></li>
+<li><a href="#es-相关资源">ES 相关资源</a><ul>
+<li><a href="#es-官网">ES 官网</a></li>
+<li><a href="#es-后台文件目录">ES 后台文件目录</a></li>
+<li><a href="#es-head-插件">ES head 插件</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop --></div><p class="readmore"><a href="/2017/08/25/ElasticSearch后台开发实践/">Read More</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/08/25/mailRFC/">mailRFC</a></h1><div class="post-meta">2017-08-25</div><div class="post-content"><!-- toc -->
 <ul>
 <li><a href="#邮箱协议">邮箱协议</a><ul>
 <li><a href="#pop3">POP3</a></li>
@@ -54,10 +86,4 @@
 </ul>
 </li>
 </ul>
-<!-- tocstop --></div><p class="readmore"><a href="/2017/08/25/sed/">Read More</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/08/25/内核学习笔记/">内核学习笔记</a></h1><div class="post-meta">2017-08-25</div><p class="readmore"><a href="/2017/08/25/内核学习笔记/">Read More</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/08/25/后台开发实践/">后台开发实践</a></h1><div class="post-meta">2017-08-25</div><p class="readmore"><a href="/2017/08/25/后台开发实践/">Read More</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/08/25/学习笔记/">学习笔记</a></h1><div class="post-meta">2017-08-25</div><p class="readmore"><a href="/2017/08/25/学习笔记/">Read More</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/08/25/语法笔记/">语法笔记</a></h1><div class="post-meta">2017-08-25</div><p class="readmore"><a href="/2017/08/25/语法笔记/">Read More</a></p></div><div class="post"><h1 class="post-title"><a href="/2017/08/20/C_Learning/">c 语言陷阱与缺陷</a></h1><div class="post-meta">2017-08-20</div><div class="post-content"><!-- toc -->
-<ul>
-<li><a href="#extern-的声明">extern 的声明：</a></li>
-<li><a href="#typedef-类型定义">typedef 类型定义</a></li>
-<li><a href="#数组的退化">数组的退化</a></li>
-</ul>
-<!-- tocstop --></div><p class="readmore"><a href="/2017/08/20/C_Learning/">Read More</a></p></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/c/" style="font-size: 15px;">c</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/Q&A/">Q&A</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/entry/">entry</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/mailRFC/">mailRFC</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/sed/">sed</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/内核学习笔记/">内核学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/后台开发实践/">后台开发实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/学习笔记/">学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/语法笔记/">语法笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/20/C_Learning/">c 语言陷阱与缺陷</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="https://github.com/Mycaster" title="github" target="_blank">github</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">caster zone.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+<!-- tocstop --></div><p class="readmore"><a href="/2017/08/25/sed/">Read More</a></p></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/c学习笔记/">c学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/ElasticSearch后台开发实践/">ElasticSearch后台开发实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/mailRFC/">mailRFC</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/25/sed/">sed</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="https://github.com/Mycaster" title="github" target="_blank">github</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">caster zone.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
