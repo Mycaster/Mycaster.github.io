@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>mailRFC | caster</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">mailRFC</h1><a id="logo" href="/.">caster</a><p class="description">点滴积累方有为</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> archives</i></a><a href="/about-me/"><i class="fa fa-user"> about me</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">mailRFC</h1><div class="post-meta">Aug 24, 2017<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><!-- toc -->
+<ul>
+<li><a href="#邮箱协议">邮箱协议</a><ul>
+<li><a href="#pop3">POP3</a></li>
+<li><a href="#imap">IMAP</a></li>
+<li><a href="#相关资源">相关资源</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<a id="more"></a>
+<h3><span id="邮箱协议">邮箱协议</span></h3><p>​    项目中要实现一个第三方的邮箱功能，支持读写邮件等操作。其中读写邮件都是在客户端做的，但是当新邮件到达的时候，客户端没有办法得到通知，也不可能通过轮询去获取是否有新邮件的到达，所以这个任务就只能在服务端做了。服务端的主要工作是轮询邮件服务器，查看是否有新的邮件（指客户端没有的邮件而不是未读的邮件），如果有就通知客户端新邮件的数量。之前没有接触过邮件协议，过程中踩了一些坑。由于服务端没有涉及到发送邮件，所以只重点记录下POP3 和 IMAP 协议。</p>
+<p>​    首先邮件协议分为两部分，一个是发送邮件的协议（SMTP），一个是接收邮件的协议（POP3 / IMAP）。POP3是比较老的协议了，IMAP 是改进后的协议，支持更多的操作。现在大部分都支持 IMAP 协议，极少数还只支持 POP3 协议。</p>
+<p>​    POP3 和 IMAP 两者最大的区别是：POP3 是从服务器将邮件下载到本地，本地已读的状态是无法同步到服务器上去的，所以要本地自己保存邮件的读取状态。而 IMAP 支持远程读取，更多的功能，包括search之类的。</p>
+<h4><span id="pop3">POP3</span></h4><p>​    POP3 是很简单的协议。支持的命令只有以下几种：</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>参数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>用户名</td>
+<td style="text-align:left">用户名认证</td>
+</tr>
+<tr>
+<td>PASS</td>
+<td>密码</td>
+<td style="text-align:left">密码认证</td>
+</tr>
+<tr>
+<td>LIST</td>
+<td></td>
+<td style="text-align:left">列出所有邮件，并按升序返回所有邮件的ID和对应的大小</td>
+</tr>
+<tr>
+<td>UIDL</td>
+<td></td>
+<td style="text-align:left">列出所有邮件，并按升序返回所有邮件的 ID 和 唯一标识符 UID</td>
+</tr>
+<tr>
+<td>STAT</td>
+<td></td>
+<td style="text-align:left">统计所有邮件的数量和总大小</td>
+</tr>
+<tr>
+<td>TOP</td>
+<td>ID  LINE</td>
+<td style="text-align:left">取得某个具体 ID的邮件的内容的前 LINE 行</td>
+</tr>
+</tbody>
+</table>
+<p>使用 telnet 简单测试如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">[root@ ~]telnet pop.sina.com 110</div><div class="line">Trying 113.108.216.75...</div><div class="line">Connected to pop.sina.com.</div><div class="line">Escape character is '^]'.</div><div class="line">+OK sina pop3 server ready      #第一次登陆收到的信息</div><div class="line">user ******@sina.com			#user 用户名</div><div class="line">+OK welcome to sina mail		#成功回复 +OK (如果用户名错误，将会返回 -ERR)</div><div class="line">pass *******					#pass 密码</div><div class="line">+OK 2 messages (13182 octets)	#成功回复 +OK  (如果密码错误，将会返回 -ERR auth error)</div><div class="line">uidl							#查看所有邮件的 uid</div><div class="line">+OK 2 messages (13182 octets)</div><div class="line">1 0466D0807445123D248F75FF******5A4400000000000006	#回复格式 id uid</div><div class="line">2 04B0289C1E890D96C922190D******389500000000000001</div><div class="line">.								#以 . 结束</div><div class="line">list							#查看所有邮件，本次连接有效</div><div class="line">+OK 2 messages (13182 octets)</div><div class="line">1 10684</div><div class="line">2 2498</div><div class="line">.</div><div class="line">stat							#统计邮件</div><div class="line">+OK 2 13182						#有2封邮件，总共大小是13182</div></pre></td></tr></table></figure>
+<p>​    那么问题来了，POP3 中没有记录邮件的状态，如何知道这是新的邮件呢？对于客户端来说，一定是要保存所有邮件的 uid ，并在本地记录读取状态的。而服务端要知道是否是新邮件，则必须拿到客户端本地的所有 uid, 然后在每个轮询周期内，获得当前所有邮件的uid，通过对比uid得知哪些是客户端没有的，即新邮件，然后发给客户端。显然这是最简单粗暴的方法，通过数据的冗余实现的。</p>
+<p>​    考虑到服务端只是起到提醒的功能，有以下两种方案可以满足大部分的情况：</p>
+<ol>
+<li><p>服务端只保存客户端最大的邮件的 ID，每次轮询对比当前邮件服务器的最大ID 和客户端的最大ID，如果邮件服务器的最大ID &lt;= 客户端的最大ID， 表示没有新邮件，如果大于，则大于的 ID 为新邮件。客户端每次拉去最新邮件和服务端每次轮询到新邮件都会更新该最大 ID 的值。</p>
+<p>这种方案在 （删除邮件数==新增邮件数）时会错过一次提醒。</p>
+</li>
+</ol>
+<ol>
+<li><p>服务端保存客户端最大的邮件ID 和邮件的 uid ,每次轮询从邮件服务器的 uid 列表中找到客户端对应的最大ID的 uid，然后在该uid之后的都是新邮件。客户端每次拉去最新邮件和服务端每次轮询到新邮件都会更新该 uid 的值。</p>
+<p>这种方案在 （删除的邮件包括最新的邮件）时会错过一次提醒。</p>
+<p>当然可以将2种方案结合起来，可以达到最小的误差。</p>
+</li>
+</ol>
+<blockquote>
+<p>PS.</p>
+<ol>
+<li>POP3 的 LIST 命令结果受连接限制，当有新邮件到达时，要重连才回显示。</li>
+</ol>
+</blockquote>
+<h4><span id="imap">IMAP</span></h4><p>IMAP 的命令相对于 POP3来说要复杂一些，但支持的功能也更强大。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">[root@ ~] telnet imap.sina.com 143 </div><div class="line">Trying 113.108.216.75...</div><div class="line">Connected to imap.sina.com.cn.</div><div class="line">Escape character is '^]'.</div><div class="line">* OK [CAPABILITY IMAP4rev1 ID] sina imapproxy ready</div><div class="line">x login ***** ****										#登陆操作</div><div class="line">x OK [CAPABILITY IMAP4rev1 ID] User *** authenticated   #登陆成功</div><div class="line">x list "" *								#显示所有的目录</div><div class="line">* LIST () "/" "&amp;UXZbg5CuTvY-"</div><div class="line">* LIST () "/" "INBOX"</div><div class="line">* LIST (\Drafts) "/" "&amp;g0l6P1k5-"</div><div class="line">* LIST (\Sent) "/" "&amp;XfJT0ZAB-"</div><div class="line">* LIST (\Trash) "/" "&amp;XfJSIJZk-"</div><div class="line">* LIST (\Junk) "/" "&amp;V4NXPpCuTvY-"</div><div class="line">* LIST () "/" "&amp;i6KWBZCuTvY-"</div><div class="line">* LIST () "/" "&amp;Zh9oB5CuTvY-"</div><div class="line">* LIST () "/" "&amp;VUaLr0,hYG8-"</div><div class="line">* LIST () "/" "&amp;f1F62ZAad+U-"</div><div class="line">x OK LIST completed</div><div class="line">x select inbox							#选择一个当前目录 （这里选择根目录INBOX）</div><div class="line">* 2 EXISTS</div><div class="line">* 2 RECENT								#表示有两封新邮件</div><div class="line">* OK [UIDVALIDITY 1] UID validity status</div><div class="line">* OK [UIDNEXT 4] Predicted next UID</div><div class="line">* FLAGS (\Answered \Flagged \Deleted \Draft \Seen)</div><div class="line">* OK [PERMANENTFLAGS (\* \Answered \Flagged \Deleted \Draft \Seen)] Permanent flags</div><div class="line">* OK [UNSEEN 1] first unseen message in inbox   #表示有一封是未读的</div><div class="line">x OK [READ-WRITE] SELECT completed</div><div class="line">X search unseen								#搜索所有未读邮件</div><div class="line">* search 1 2</div><div class="line">X OK SEARCH completed</div></pre></td></tr></table></figure>
+<h4><span id="相关资源">相关资源</span></h4><ol>
+<li><p>c/c++ MIME 解析库：</p>
+<p>Mimetic (C++)</p>
+<p>Vmime (C++) :    <a href="https://www.vmime.org/downloads.html" target="_blank" rel="external">https://www.vmime.org/downloads.html</a></p>
+<p>Mime++ (C++)</p>
+<p>Gmime (C++)</p>
+<p>Chilkat 软件MIME C ++库    </p>
+</li>
+<li><p>邮箱相关服务器信息：<br>邮件服务器 | 服务器地址 | 端口<br>POP3服务器 | pop.126.com | 110<br>SMTP服务器 | smtp.126.com | 25<br>IMAP服务器 | imap.126.com | 143</p>
+<!-- tag: mail -->
+</li>
+</ol>
+</div><div class="tags"><a href="/tags/mail/">mail</a></div><div class="post-nav"><a href="/2017/08/01/c学习笔记/" class="next">c学习笔记</a></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/mail/" style="font-size: 15px;">mail</a> <a href="/tags/golang/" style="font-size: 15px;">golang</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/mailRFC/">mailRFC</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/01/c学习笔记/">c学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/07/golang语法笔记/">golang语法笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/07/sed/">sed</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/Mycaster" title="github" target="_blank">github</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">caster.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

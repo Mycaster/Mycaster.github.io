@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>sed | caster</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">sed</h1><a id="logo" href="/.">caster</a><p class="description">点滴积累方有为</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> archives</i></a><a href="/about-me/"><i class="fa fa-user"> about me</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">sed</h1><div class="post-meta">Jul 7, 2017<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><!-- toc -->
+<ul>
+<li><a href="#sed-教程">sed 教程</a></li>
+<li><a href="#1-简介">1. 简介</a></li>
+<li><a href="#2-sed-基础入门">2. sed 基础入门</a></li>
+<li><a href="#3-完整的sed命令">3. 完整的sed命令</a><ul>
+<li><a href="#options-address-command">options , Address, Command</a></li>
+<li><a href="#patternspace">PatternSpace</a></li>
+</ul>
+</li>
+<li><a href="#4-sed-options">4. sed options</a></li>
+<li><a href="#5-sed-script-addresscommand">5. sed script [AddressCommand]</a><ul>
+<li><a href="#41-script-简介">4.1 script 简介</a></li>
+<li><a href="#42-sed-command">4.2 sed Command</a><ul>
+<li><a href="#特殊的command-s">特殊的Command s</a></li>
+<li><a href="#常用-command">常用 Command</a></li>
+<li><a href="#不常用command">不常用Command</a></li>
+<li><a href="#需要换行的-command">需要换行的 Command</a></li>
+<li><a href="#325-sed-commands-总结">3.2.5 sed commands 总结</a></li>
+</ul>
+</li>
+<li><a href="#33-sed-address">3.3 sed Address</a></li>
+<li><a href="#23-退出状态">2.3 退出状态</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<a id="more"></a>
+<h2><span id="sed-教程">sed 教程</span></h2><h2><span id="1-简介">1. 简介</span></h2><p>​    sed 是 Linux 下常用的流式文本处理器，将输入流按行处理，可以满足大部分场景的文本处理需要。然而第一次使用的时候基本是懵逼的，除了最简单的 s/a/b/g ，其余的语法都是似懂非懂，对于稍微复杂一点的场景，就要开启 [ Google-&gt;尝试-&gt;不管用-&gt;继续Google ] 的大循环 =.= 。</p>
+<p>​    搜了一下目前好像还没有系统的中文 sed 教程，现在抽空从整体上梳理一下 sed 的使用。当然这篇文章参考了 <a href="http://coolshell.cn/articles/9104.html" target="_blank" rel="external">陈皓大神的文章</a>  和 <a href="https://www.gnu.org/software/sed/manual/sed.html" target="_blank" rel="external">sed 的英文手册</a></p>
+<h2><span id="2-sed-基础入门">2. sed 基础入门</span></h2><p>首先，万事开头难，假设你还只是个小白，所以开始要先讲一些简单的东西。如果已经学会了一些技巧请移步下一章。</p>
+<p>最简单的比如，要将 input.txt 中的 “hello” 替换成 “world”，并输出到 ouput.txt 中，你可以这样做</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed  's/hello/world/'  input.txt  &gt; output.txt</div></pre></td></tr></table></figure>
+<p>或者在每一行的前面加内容，可以这样</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed 's/^/##/g' input.txt</div></pre></td></tr></table></figure>
+<p>或者在每一行的末尾加内容，可以这样</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed 's/$/===/g' input.txt</div></pre></td></tr></table></figure>
+<p>当然，也可以不指定 inputfile，比如使用管道作为输入流。以下的操作都是等价的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sed 's/hello/world/' input.txt &gt; output.txt</div><div class="line">sed 's/hello/world/'  &lt; input.txt &gt; output.txt</div><div class="line">cat input.txt | sed 's/hello/world/' &gt; output.txt </div><div class="line"><span class="meta">#</span>友情提示, world 后面的 / 不能少噢，不然会提示 </div><div class="line"><span class="meta">#</span>sed: -e expression #1, char 13: unterminated `s' command</div></pre></td></tr></table></figure>
+<p>sed 默认是不会修改源文件的，如果不想输出到 output.txt　而是直接在源文件上修改，使用　-i  选项</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed -i 's/hello/world/' input.txt</div></pre></td></tr></table></figure>
+<p>默认的 sed 会打印输出所有处理过的输入 (除了被修改或被删除的行)  ，可以使用 -n 忽略输出，并使用 p 来打印特定行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed -n '1p' input.txt   #只打印第1行</div></pre></td></tr></table></figure>
+<p>sed 可以同时处理多个文件，比如打印出第一个文件的第一行和最后一个文件的最后一行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed -n '1p ; $p' 1.txt 2.txt 3.txt  # $表示最后一行，这里将会输出 3.txt 的最后一行</div></pre></td></tr></table></figure>
+<h2><span id="3-完整的sed命令">3. 完整的sed命令</span></h2><p>一个完整的的 sed 命令形式如下，这个公式概括了 sed 几乎所有的使用形式，主要分为 options ，Address，Command 三部分。一个 AddressCommand 即是一个 script</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed [options] 'AddressCommand' [inputfile]</div></pre></td></tr></table></figure>
+<h4><span id="options-address-command">options , Address, Command</span></h4><ul>
+<li><p>[options] </p>
+<p>sed 的处理选项，用于指定处理方式，比如 -n （静默模式）-i（直接修改源文件）-f （使用脚本文件）等等</p>
+</li>
+</ul>
+<ul>
+<li><p>Address </p>
+<p>script 的一部份，用于指定处理范围，可以<strong>指定行范围</strong>  （如 3,5 表示处理3到5行的数据），或者用<strong>正则表达式</strong>（如  /hello/ 表示处理匹配了关键词 hello 的数据）指定处理范围，也可以混合使用，后续会重点讲到。</p>
+</li>
+<li><p>Command</p>
+<p>script 的一部份，当Address 指定了需要处理的数据范围时，command 用于处理该范围内的数据，包括编辑，删除，打印等等操作，后续会讲到。</p>
+</li>
+</ul>
+<p>这里还需要重点理解 PatternSpace 的概念。</p>
+<h4><span id="patternspace">PatternSpace</span></h4><p>首先要知道，sed 是按行处理文本流的，即有一个循环每次去读取一行的数据，这一行的数据会被复制到当前的模式空间（PatternSpace），然后根据 AddressCommand 的规则去处理。所以 PatternSpace 类似于一个缓冲区，不断的将当前行放到缓冲区去处理。</p>
+<p>伪代码可表示如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">foreach line in file&#123;</div><div class="line">    #1. 读取当前行，放到 PatternSpace 中</div><div class="line">    PatternSpace &lt;= line</div><div class="line">    </div><div class="line">    #2. 对 PatternSpace 中的数据执行 AddressCommand 脚本</div><div class="line">    PatternSpace &lt;= EXEC(Address,Command,PatternSpace)</div><div class="line">    </div><div class="line">    #3. 如果 options 中没有指定 -n (即静默模式，不打印) 则打印出当前模式空间的处理结果</div><div class="line">    if (sed options hasn't "-n")&#123;</div><div class="line">      print PatternSpace</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>后面还会讲到如何替换PatternSpace中的数据。</p>
+<h2><span id="4-sed-options">4. sed options</span></h2><p>sed 的 options  有一堆，下面只列出了常用的部分, 其余的暂时还没用到过…等用到了再补充说明吧</p>
+<ul>
+<li>-n  : 不打印模式空间的内容</li>
+<li>-i   : 直接修改源文件</li>
+<li>–quiet</li>
+<li>–slient</li>
+</ul>
+<h2><span id="5-sed-script-addresscommand">5. sed script [AddressCommand]</span></h2><h3><span id="41-script-简介">4.1 script 简介</span></h3><p>如 2.1 所述，sed 中最重要的就是 Address 和 Command ,前者用于指定处理范围，后者指定处理方式。</p>
+<p>AddressCommand 组合起来就是一个 script，一个sed 语句可以包含多个 script，可以通过 -e , -f ，–expression 和 –file 选项来指定。</p>
+<p>在上述的标准形式 AddressCommand  中，其实还包含另一个参数，就是Command 也可以加参数，完整的形式应该是这个样子的: </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Address]X[options]</div></pre></td></tr></table></figure>
+<p>X[options] 合起来表示一个 command，其中 X 是 sed 中的一个单个字符，比如 p (打印)，d(删除)，q(退出)等等，而 X 后面的[options]表示这个命令可以带的参数，可带可不带，比如 q42 表示退出后返回状态码 42</p>
+<p>以下用几个简单的命令理解一下 [Address]X[options] 的含义</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 30,35    Address, 指定处理30-35行的数据</div><div class="line"><span class="meta">#</span> d 	   Command, 删除命令</div><div class="line">sed '30,35d' input.txt </div><div class="line"></div><div class="line"><span class="meta">#</span> /^foo/   Address, 正则表达式，匹配以 foo 开头的所有行</div><div class="line"><span class="meta">#</span> q		   Command, 退出命令</div><div class="line"><span class="meta">#</span> 42       Command 的参数，表示返回42的状态码</div><div class="line">sed '/^foo/q42' input.txt &gt; output.txt</div></pre></td></tr></table></figure>
+<p>如果是多个 script , 可以用 -e 或者 -f 指定，比如下面的语句都是等价的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 先删除以 foo 开头的所有行，然后将所有行中的 hello 替换为 world</div><div class="line">sed '/^foo/d ; s/hello/world/' input.txt</div><div class="line"><span class="meta">#</span>将多个Command 用 -e 表示</div><div class="line">sed -e '/^foo/d' -e 's/hello/world/' input.txt</div><div class="line"><span class="meta">#</span>指定 script 文件，执行 script.sed 文件中的 Command</div><div class="line">echo '/^foo/d' &gt; script.sed</div><div class="line">echo 's/hello/world/' &gt;&gt; script.sed</div><div class="line">sed -f script.sed input.txt</div><div class="line"><span class="meta">#</span>同时使用-e 和 -f</div><div class="line">echo 's/hello/world/' &gt; script2.sed</div><div class="line">sed -e '/^foo/d' -f script2.sed input.txt</div></pre></td></tr></table></figure>
+<h3><span id="42-sed-command">4.2 sed Command</span></h3><h4><span id="特殊的command-s">特殊的Command s</span></h4><p>s 大概是sed 中最重要的命令，因为有非常多的组合操作，所以单独拿出来讲。在文章的开头已经举了一些简单的例子。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">'s/regexp/replacement/flags'</div><div class="line"><span class="meta">#</span>当然中间的分割符也可以使用 | 或 @ 或 # 之类的，比如以下都是等价的</div><div class="line">'s|regexp|replacement|flags'  </div><div class="line">'s@regexp@replacement@flags'</div><div class="line">'s#regexp#replacement#flags'</div></pre></td></tr></table></figure>
+<p>道理很简单，找到所有匹配 regexp 的内容，并替换成 replacement  </p>
+<p>replacement 中可以包含 \n   (n 是1-9 的数字)，表示所有匹配结果中的第几个结果，或者用 &amp; 表示这一行中所有匹配的结果。</p>
+<p>字符 /  可以</p>
+<h4><span id="常用-command">常用 Command</span></h4><p><strong>d</strong></p>
+<p>删除当前PatternSapce 的内容，并立刻进入下一个循环</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h4><span id="不常用command">不常用Command</span></h4><h4><span id="需要换行的-command">需要换行的 Command</span></h4><p> <strong>a/c/i (append/change/insert)</strong> </p>
+<p>上述命令会将后面的command 也作为文本内容一起处理，这会产生语法上的歧义。</p>
+<ol>
+<li>比如下面在第一行末尾加上Hello，同时删除第二行，但是结果是 a 后面的所有内容都被append 在1 后面了</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">seq 2 | sed '1aHello ; 2d'</div><div class="line">1</div><div class="line">Hello ; 2d</div><div class="line">2</div></pre></td></tr></table></figure>
+<p>正确的写法应该是用 -e 分开，或者换行进行下一个Command</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> seq 2 | sed '1aHello</div><div class="line">2d'</div><div class="line">1</div><div class="line">Hello</div><div class="line"><span class="meta">$</span> seq 2 | sed -e '1aHello' -e '2d'</div><div class="line">1</div><div class="line">Hello</div></pre></td></tr></table></figure>
+<p><strong>#(注释)</strong></p>
+<p>注释会忽略当前行之后的所有内容</p>
+<p><strong>r, R, w, W (读写文件的命令)</strong></p>
+<p><strong>e (执行命令)</strong></p>
+<p><strong>s///[we]  (以w 或e 作为flag结尾的s命令)</strong></p>
+<h4><span id="325-sed-commands-总结">3.2.5 sed commands 总结</span></h4><p>以下列出的所有Commands , GNU sed 都支持。有一些是标准的 POSIX commands , 其余的是 GNU 扩展。</p>
+<ul>
+<li><p>a\</p>
+<p>text</p>
+<p>​</p>
+</li>
+</ul>
+<p>​       a text</p>
+<ul>
+<li>b label </li>
+</ul>
+<h3><span id="33-sed-address">3.3 sed Address</span></h3><p>Address 决定了哪些行会被 sed 的Command 处理，比如下面的命令只会将第144行的hello替换成world</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed '144s/hello/world/' input.txt</div></pre></td></tr></table></figure>
+<p>如果 Address 为空的话，就会对所有行都用Command处理</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed 's/hello/world/' input.txt</div></pre></td></tr></table></figure>
+<p>除了使用数字指定处理范围，还可以用正则，下面对包含关键字apple 的行，将hello替换为world</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed '/apple/s/hello/wolrd/g' input.txt</div></pre></td></tr></table></figure>
+<h3><span id="23-退出状态">2.3  退出状态</span></h3><p>sed 可以自定义执行后退出的状态码，用于shell 中判断执行结果。0 表示成功， 1表示输入的命令格式不对，2表示输入的文件无法打开(比如不存在，没权限之类的) ，4 表示 I/O 错误。</p>
+<!-- tag: shell-script -->
+</div><div class="tags"><a href="/tags/shell/">shell</a></div><div class="post-nav"><a href="/2017/07/07/golang语法笔记/" class="pre">golang语法笔记</a></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://yoursite.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/mail/" style="font-size: 15px;">mail</a> <a href="/tags/golang/" style="font-size: 15px;">golang</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/24/mailRFC/">mailRFC</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/01/c学习笔记/">c学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/07/golang语法笔记/">golang语法笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/07/sed/">sed</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/Mycaster" title="github" target="_blank">github</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2017 <a href="/." rel="nofollow">caster.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
